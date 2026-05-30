@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Detector de Malware</title>
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="page">
+    <section class="scanner-card">
+      <div class="header">
+        <h1>Detector de Malware</h1>
+        <p>
+          Sube un archivo PDF, DOC, DOCX, TXT o ZIP para analizarlo con ClamAV.
+        </p>
+      </div>
+
+      <div id="drop-area" class="drop-area">
+        <div class="drop-icon">📎</div>
+        <p class="drop-title">Arrastra y suelta tu archivo aquí</p>
+        <p class="drop-subtitle">o selecciona un archivo desde tu equipo</p>
+
+        <input
+          type="file"
+          id="file-input"
+          accept=".pdf,.doc,.docx,.txt,.zip"
+          hidden
+        />
+
+        <button type="button" id="select-file-btn">
+          Seleccionar archivo
+        </button>
+      </div>
+
+      <div id="file-info" class="file-info hidden">
+        <strong>Archivo seleccionado:</strong>
+        <span id="file-name"></span>
+      </div>
+
+      <div class="progress-section">
+        <div class="progress-bar-container">
+          <div id="progress-bar" class="progress-bar"></div>
+        </div>
+        <p id="status-text">Esperando archivo...</p>
+      </div>
+
+      <button type="button" id="scan-btn" class="scan-btn" disabled>
+        Subir y escanear
+      </button>
+
+      <div id="result-box" class="result-box hidden"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
