@@ -10,6 +10,11 @@ const resultBox = document.getElementById("result-box");
 
 const API_URL = "http://127.0.0.1:5000";
 
+// Laboratorio 3: Detector de Malware en Archivos Adjuntos
+// Frontend desarrollado con HTML, CSS y JavaScript.
+// Se utilizó IA como apoyo para crear la lógica de drag & drop,
+// validación de archivos, conexión con la API y visualización dinámica de resultados.
+
 let selectedFile = null;
 
 const allowedExtensions = ["pdf", "doc", "docx", "txt", "zip"];

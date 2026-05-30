@@ -1,3 +1,9 @@
+# Laboratorio 3: Detector de Malware en Archivos Adjuntos
+# Backend desarrollado con Flask.
+# Se utilizaron herramientas de IA como apoyo para generar la estructura inicial
+# de la API REST, corregir errores de dependencias y adaptar la integración
+# de ClamAV al entorno Windows con PowerShell.
+
 import os
 import uuid
 from flask import Flask, request, jsonify
@@ -26,7 +32,8 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 def allowed_file(filename):
     return "." in filename and filename.rsplit(".", 1)[1].lower() in ALLOWED_EXTENSIONS
 
-
+# Endpoint generado y ajustado con apoyo de IA.
+# Recibe un archivo, valida su extensión y lo guarda temporalmente.
 @app.route("/api/upload", methods=["POST"])
 def upload_file():
     if "file" not in request.files:
@@ -59,7 +66,8 @@ def upload_file():
         "filename": filename
     }), 200
 
-
+# La lógica de escaneo fue construida con apoyo de IA y posteriormente
+# adaptada manualmente para utilizar ClamAV en Windows mediante conexión local.
 @app.route("/api/scan/<file_id>", methods=["POST"])
 def scan_file(file_id):
     if file_id not in files_storage:
